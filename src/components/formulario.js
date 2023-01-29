@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {v4 as uuid} from 'uuid'
 
-const Formulario=()=>{
+const Formulario=({crearCita})=>{
     
     const [cita, setCita] = useState({
         paciente:'',
@@ -36,14 +36,27 @@ const Formulario=()=>{
           setError(true);
           return;
         }
+        
         //eliminar mensaje previo
         setError(false)
+        
         //asignar ID
         cita.id= uuid()
-        console.log(cita.id)
+        
         //crear cita
+        crearCita(cita);
+
         //reiniciar form
+        setCita({
+            paciente:'',
+            acompanante:'',
+            fecha:'',
+            hora:'',
+            sintomas:'',
+        })
     }
+
+    
 
     return (
         <>
