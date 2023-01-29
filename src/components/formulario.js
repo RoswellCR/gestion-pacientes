@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import {v4 as uuid} from 'uuid'
+import {v4 as uuid} from 'uuid';
+import PropTypes from 'prop-types';
 
 const Formulario=({crearCita})=>{
     
@@ -114,5 +115,10 @@ const Formulario=({crearCita})=>{
         </>
     )
 }
+
+Formulario.propTypes = {
+    //se define la unica props que recibe Formulario, que sera requerido 
+    crearCitas: PropTypes.func.isRequired
+};
 
 export default Formulario;
